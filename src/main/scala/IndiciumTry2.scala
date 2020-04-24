@@ -11,7 +11,7 @@ object TestPerf2 {
       val n = Random.between(2, 10)
       val k = Random.between(n, n * n + 1)
       println(s"start solving for $n $k")
-      val solution = Try(Solution.solve(n, k))
+      val solution = Try(IndiciumTry2.solve(n, k))
       val took = (System.currentTimeMillis() - start) / 1E3
       println(s"Finished solving for $n $k ${if (solution.isSuccess) "success" else "failure"}")
       println(s"took $took sec")
@@ -22,7 +22,7 @@ object TestPerf2 {
   }
 }
 
-object Solution {
+object IndiciumTry2 {
 
   def buildPermutations(n: Int, array: Array[Array[Int]], currRow: Int, currCol: Int, leftToUse: Set[Int], currentPerm: Array[Int]): LazyList[Array[Int]] = {
     if(currCol == currRow){
